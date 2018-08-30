@@ -3,16 +3,27 @@
 <head>
 	<title>test</title>
 	<style type="text/css">
+	
+	:root{
+      	--page-width: 200px;
+      	--page-height:260px;
+      	--page-unactive-width:38px;
+      	--page-unactive-left:162px;
+    }
+
 	ul {
 		list-style: none;
 	}
+
+	
+
 
 	ul li {
 		border: solid 1px ;
 		padding: 0px;
 		margin: 0px;
 		float: left;
-		width: 30px;
+		width: var(--page-unactive-width);
 		overflow: hidden;
 	}
 
@@ -23,7 +34,7 @@
 		padding: 0px;
 		margin: 0px;
 		float: left;
-		width: 110px;
+		width: var(--page-width);
 		overflow: hidden;
 
 		
@@ -31,16 +42,16 @@
 
 	.left{
 		position: relative;
-		right: 70px;
+		right: var(--page-unactive-left);
 	}
 
 
 	.addLeft{
 		animation:myleft2 1s ;	
 	}
-	ul li div {
-		width: 110px;
-		height: 100px;
+	ul li .page {
+		width: var(--page-width);
+		height: var(--page-height);
 		background: #00f;
 		
 	}
@@ -53,27 +64,65 @@
 	.removeActive{
 		animation:mymove2 1s;
 	}
+
+	img {
+		width: 100%;
+	
+	}
+
+
+	.title{
+		padding-top: 2%;
+    	padding-left: 9%;
+	}
+
+	.content_left{
+		width: 80%;
+		float: left;
+	}
+	.content_right{
+		width: 20%;
+		float: right;
+	}
+
+	.content_right .text{
+		margin: 0;
+		width: 20px;
+		line-height: 19px;
+		float: right;
+		font-size: 12px;
+
+	}
+	.content_left .text{
+		margin-left: 8px;
+    	margin-top: 2px;
+
+	}
+
 	@keyframes mymove
 	{
-		from {width:30px;}
-		to {width:110px;}
+		from {width:var(--page-unactive-width);}
+		to {width: var(--page-width);}
 	}
 
 	@keyframes mymove2{
-		from {width:110px;}
-		to {width:30px;}
+		from {width: var(--page-width);}
+		to {width:var(page-unactive-width);}
 	}
 
 
 	@keyframes myleft{
-		from {right: 70px}
+		from {right:var(--page-unactive-left)}
 		to {right: 0px}
 	}
 
 	@keyframes myleft2{
 		from {right: 0px}
-		to {right: 70px}
+		to {right:var(--page-unactive-left)}
+
+
 	}
+	
 	</style>
 	
 
@@ -81,31 +130,74 @@
 <body>
 <ul>
 	<li onclick="activeLi(0)">
-		<div click="alert(1)" class="left">
-			hello world 0
+		<div class="page left" >
+			<img src="./img/test.png" >
+			<div class="title">
+				hello world 0
+			</div>
+			<div class="content">
+				<div class="content_left">
+					<div class="text">content left</div>
+				</div>
+				<div class="content_right">
+				 	<div class="text">西游记</div>
+				</div>
+			</div>
 		</div>
 	</li>
 	<li onclick="activeLi(1)"  >
-		<div class="left">
-			hello world 1
+		<div class="page left">
+			<img src="./img/test.png" >
+			<div class="title">
+				hello world 1
+			</div>
+			<div class="content">
+				<div class="content_left">
+					<div class="text">
+						content left
+					</div>
+				</div>
+				<div class="content_right">
+				 	<div class="text">红楼梦</div>
+				</div>
+			</div>
 		</div>
 	</li>
 	<li onclick="activeLi(2)">
-		<div class="left">
-			hello world 2
+		<div class="page left">
+			<img src="./img/test.png" >
+			<div class="title">
+				hello world 2
+			</div>
+			<div class="content">
+				<div class="content_left">
+					<div class="text">content left</div>
+				</div>
+				<div class="content_right">
+				 	<div class="text">三国演义</div>
+				</div>
+			</div>
 		</div>
 	</li>
 	<li onclick="activeLi(3)" >
-		<div class="left">
-			hello world 3
+		<div class="page left">
+			<img src="./img/test.png" >
+			<div class="title">
+				hello world 3
+			</div>
+			<div class="content">
+				<div class="content_left">
+					<div class="text">
+						content left
+					</div>
+				</div>
+				<div class="content_right">
+				 	<div class="text">水浒传</div>
+				</div>
+			</div>
 		</div>
 	</li>
-	<li onclick="activeLi(4)">
-		<div class="left">
-			hello world 4
-		</div>
-	</li>
-
+	
 </ul>
 <script type="text/javascript" src="./jquery/jquery-1.6.2.min.js"></script>
 <script type="text/javascript">
